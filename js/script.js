@@ -121,9 +121,10 @@ const closeModalBtn = document.querySelector('.close-button');
  * @returns {string} HTML do card.
  */
 function generateAnnouncementCardHTML(pet) {
+    // ATENÇÃO: Ícones Font Awesome removidos para garantir que o texto apareça
     const recompensaBadge = pet.recompensa !== 'Não' ? 
-        `<span class="badge badge-recompensa"><i class="fas fa-gift"></i> ${pet.recompensa}</span>` : 
-        `<span class="badge badge-recompensa" style="background-color: #ccc; color: #555;"><i class="fas fa-hand-holding-usd"></i> Sem Recompensa</span>`;
+        `<span class="badge badge-recompensa"> Recompensa: ${pet.recompensa}</span>` : 
+        `<span class="badge badge-recompensa" style="background-color: #ccc; color: #555;"> Sem Recompensa</span>`;
 
     return `
         <article class="announcement-card" data-id="${pet.id}" onclick="openPetDetails(${pet.id})">
@@ -131,13 +132,13 @@ function generateAnnouncementCardHTML(pet) {
             <div class="card-content">
                 <h3>${pet.nome} <span class="badge badge-perdido">PERDIDO</span></h3>
                 <div class="card-info">
-                    <p><strong><i class="fas fa-dog"></i> Raça:</strong> ${pet.raca}</p>
-                    <p><strong><i class="fas fa-map-marker-alt"></i> Bairro:</strong> ${pet.bairro}</p>
-                    <p><strong><i class="fas fa-clock"></i> Última Vez:</strong> ${pet.ultimaVisto}</p>
+                    <p><strong>Raça:</strong> ${pet.raca}</p>
+                    <p><strong>Bairro:</strong> ${pet.bairro}</p>
+                    <p><strong>Última Vez:</strong> ${pet.ultimaVisto}</p>
                 </div>
                 <div class="card-badges">
                     ${recompensaBadge}
-                    <span class="badge badge-visto"><i class="fas fa-venus-mars"></i> ${pet.sexo}</span>
+                    <span class="badge badge-visto"> Sexo: ${pet.sexo}</span>
                 </div>
             </div>
         </article>
@@ -152,7 +153,8 @@ function renderAnnouncements(list) {
     announcementGrid.innerHTML = ''; // Limpa o conteúdo
     
     if (list.length === 0) {
-        announcementGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; font-size: 1.5em; color: var(--color-alert);">Nenhum anúncio encontrado. Tente refinar a busca.</p>';
+        // Estilo inline para garantir visibilidade, já que o CSS pode estar simplificado
+        announcementGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; font-size: 1.5em; color: red;">Nenhum anúncio encontrado. Tente refinar a busca.</p>';
         return;
     }
 
@@ -168,7 +170,6 @@ function filterAnnouncements() {
     const input = filterInput.value.toLowerCase().trim();
     
     if (input.length < 2 && input.length > 0) {
-        // Evita buscas muito genéricas que podem ser lentas em sites maiores
         alert("Digite pelo menos 2 caracteres para refinar a busca.");
         return;
     }
@@ -201,28 +202,29 @@ function openPetDetails(petId) {
     const pet = ANUNCIOS.find(p => p.id === petId);
     if (!pet) return;
 
+    // ATENÇÃO: Ícones Font Awesome removidos ou substituídos por texto
     modalContent.innerHTML = `
         <img src="${pet.fotoUrl}" alt="Foto de ${pet.nome}" class="modal-img">
-        <h3>${pet.nome} <span style="font-size: 0.6em; color: var(--color-alert);"> (PERDIDO)</span></h3>
-        <p><strong><i class="fas fa-search-plus"></i> Detalhes Adicionais:</strong> ${pet.detalhes}</p>
+        <h3>${pet.nome} <span style="font-size: 0.6em; color: red;"> (PERDIDO)</span></h3>
+        <p><strong>Detalhes Adicionais:</strong> ${pet.detalhes}</p>
         
         <div class="modal-info-group">
-            <div><strong><i class="fas fa-dog"></i> Raça:</strong> ${pet.raca}</div>
-            <div><strong><i class="fas fa-palette"></i> Cor:</strong> ${pet.cor}</div>
-            <div><strong><i class="fas fa-venus-mars"></i> Sexo/Idade:</strong> ${pet.sexo}, ${pet.idade}</div>
-            <div><strong><i class="fas fa-gift"></i> Recompensa:</strong> ${pet.recompensa}</div>
+            <div><strong>Raça:</strong> ${pet.raca}</div>
+            <div><strong>Cor:</strong> ${pet.cor}</div>
+            <div><strong>Sexo/Idade:</strong> ${pet.sexo}, ${pet.idade}</div>
+            <div><strong>Recompensa:</strong> ${pet.recompensa}</div>
         </div>
 
         <div class="modal-info-group">
-            <div><strong><i class="fas fa-map-marker-alt"></i> Último Visto:</strong> ${pet.bairro} (${pet.endereco})</div>
-            <div><strong><i class="fas fa-clock"></i> Data/Hora:</strong> ${pet.ultimaVisto}</div>
+            <div><strong>Último Visto:</strong> ${pet.bairro} (${pet.endereco})</div>
+            <div><strong>Data/Hora:</strong> ${pet.ultimaVisto}</div>
         </div>
         
-        <a href="tel:${pet.contato}" class="btn-contact-modal"><i class="fas fa-phone-volume"></i> Contato Urgente: ${pet.contato}</a>
+        <a href="tel:${pet.contato}" class="btn-contact-modal"> Contato Urgente: ${pet.contato}</a>
     `;
 
     modal.style.display = "block";
-    document.body.style.overflow = 'hidden'; // Evita scroll da página principal
+    document.body.style.overflow = 'hidden'; 
 }
 
 /**
@@ -230,7 +232,7 @@ function openPetDetails(petId) {
  */
 function closePetDetails() {
     modal.style.display = "none";
-    document.body.style.overflow = 'auto'; // Restaura o scroll da página
+    document.body.style.overflow = 'auto'; 
 }
 
 // Event Listeners

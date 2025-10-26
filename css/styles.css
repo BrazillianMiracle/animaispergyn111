@@ -1,508 +1,170 @@
-/* Variáveis CSS para Paleta Profissional e Espiritual */
+/* style.css - VERSÃO SIMPLIFICADA E ROBUSTA PARA TESTE DE CARREGAMENTO */
+
+/* Cores básicas e simples */
 :root {
-    --color-primary: #2c5f2d;        /* Verde Escuro (Estabilidade, Natureza) */
-    --color-secondary: #7ed9a8;      /* Verde Água (Esperança, Cura) */
-    --color-accent: #a8cde3;         /* Azul Claro (Calma, Confiança) */
-    --color-alert: #e37e7e;          /* Salmão Suave (Urgência, Alerta) */
-    --color-background: #f4f7f6;     /* Fundo Limpo */
-    --color-text-dark: #333333;
-    --color-text-light: #ffffff;
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --color-primary: #333333;     /* Preto simples */
+    --color-secondary: #007bff;   /* Azul padrão */
+    --color-background: #ffffff;  /* Fundo Branco */
+    --color-alert: #dc3545;       /* Vermelho de alerta */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Fonte segura */
 }
 
 body {
-    font-family: var(--font-body);
     background-color: var(--color-background);
-    color: var(--color-text-dark);
+    color: var(--color-primary);
     line-height: 1.6;
+    padding: 20px;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 /* --- Títulos e Seções --- */
-.section-title {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 2.2em;
-    font-weight: 800;
-    text-align: center;
-    margin: 40px 0 30px;
-    padding-bottom: 10px;
-    border-bottom: 4px solid var(--color-secondary);
-    display: block;
+h1, h2, h3 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
 }
 
-/* --- Cabeçalho e Banner Hero --- */
+/* --- Cabeçalho e Navegação --- */
 .main-header {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.banner-hero {
-    background: linear-gradient(145deg, var(--color-secondary) 0%, var(--color-accent) 100%);
-    padding: 60px 20px;
-    text-align: center;
-    color: var(--color-text-light);
-    border-bottom: 8px solid var(--color-primary);
-}
-
-.banner-hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5em;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.banner-hero .highlight-text {
-    color: var(--color-primary); 
-}
-
-.banner-hero p {
-    font-size: 1.3em;
-    margin: 10px 0 20px;
-    font-weight: 300;
-}
-
-.btn-hero-scroll {
-    display: inline-block;
-    background-color: var(--color-alert);
-    color: var(--color-text-light);
-    padding: 12px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btn-hero-scroll:hover {
-    background-color: #ff9898;
-    transform: translateY(-2px);
-}
-
-/* --- Navegação Principal --- */
-.main-nav {
     background-color: var(--color-primary);
-    padding: 0;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.nav-list {
+.main-header h1 {
+    color: white; /* Garante que o título seja branco no header escuro */
+    border: none;
+}
+
+.main-nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.nav-list > li {
-    position: relative;
-    padding: 0;
+    background-color: #555;
+    padding: 10px 0;
 }
 
 .nav-link {
-    color: var(--color-text-light);
+    color: white;
     text-decoration: none;
-    padding: 15px 20px;
-    display: block;
-    font-weight: 600;
-    font-size: 0.95em;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 0 15px;
 }
 
-.nav-link:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-}
-
-/* Dropdown */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--color-primary);
-    min-width: 250px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    z-index: 100;
-    list-style: none;
-    border-top: 3px solid var(--color-secondary);
-}
-
-.dropdown-content li a {
-    color: var(--color-text-light);
-    padding: 12px 20px;
-    display: block;
-    font-weight: 400;
-    font-size: 0.9em;
-}
-
-.dropdown-content li a:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* --- Seção de Busca Avançada --- */
+/* --- Seção de Filtros --- */
 .search-section {
-    background-color: var(--color-accent);
-    padding: 30px 0;
-    border-bottom: 5px solid var(--color-secondary);
-}
-
-.search-section h2 {
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-bottom: 30px;
 }
 
 .search-bar-advanced {
     display: flex;
     gap: 10px;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: var(--color-text-light);
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar-advanced input {
     flex-grow: 1;
-    padding: 12px 15px;
-    border: none;
-    font-size: 1em;
-    border-radius: 5px;
-    outline: none;
+    padding: 8px;
+    border: 1px solid #ccc;
 }
 
 .search-bar-advanced button {
-    padding: 12px 20px;
+    padding: 8px 15px;
+    background-color: var(--color-secondary);
+    color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.2s;
-    color: var(--color-text-light);
 }
 
-.search-bar-advanced button:hover {
-    transform: translateY(-1px);
-}
-
-.search-bar-advanced button:not(.btn-reset) {
-    background-color: var(--color-primary);
-}
-
-.search-bar-advanced button:not(.btn-reset):hover {
-    background-color: #1e451e;
-}
-
-.btn-reset {
-    background-color: var(--color-alert);
-}
-
-.btn-reset:hover {
-    background-color: #ff9898;
-}
-
-/* --- Grid de Anúncios --- */
+/* --- Cards de Anúncios --- */
 .announcement-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 35px;
-    padding: 20px 0;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .announcement-card {
-    background-color: var(--color-text-light);
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.4s, box-shadow 0.4s;
-    border-top: 6px solid var(--color-alert); /* Foco na Urgência */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
     cursor: pointer;
-}
-
-.announcement-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .pet-photo {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
-    display: block;
-    border-bottom: 1px solid var(--color-background);
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.6em;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.card-info {
-    font-size: 0.9em;
-    margin-bottom: 15px;
-}
-
-.card-info p {
-    margin-bottom: 6px;
-}
-
-.card-info i {
-    color: var(--color-primary);
-    margin-right: 8px;
-}
-
-.card-badges {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
+/* Badges para visibilidade */
 .badge {
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 3px;
     font-size: 0.8em;
-    text-transform: uppercase;
-}
-
-.badge-recompensa {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-}
-
-.badge-visto {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .badge-perdido {
     background-color: var(--color-alert);
-    color: var(--color-text-light);
+    color: white;
 }
 
-/* --- Modal de Detalhes (UX Aprimorada) --- */
+/* --- Rodapé --- */
+.main-footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+}
+
+/* --- Modal --- */
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.8); 
-    padding-top: 60px;
+    background-color: rgba(0,0,0,0.5); 
+    padding-top: 50px;
 }
 
 .modal-content {
-    background-color: var(--color-background);
+    background-color: white;
     margin: 5% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 700px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 0.4s;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-50px);}
-    to {opacity: 1; transform: translateY(0);}
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
 }
 
 .close-button {
-    color: var(--color-text-dark);
     float: right;
-    font-size: 28px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--color-alert);
-    text-decoration: none;
+    font-size: 24px;
     cursor: pointer;
-}
-
-#modal-body-content h3 {
-    font-size: 2em;
-    color: var(--color-primary);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--color-secondary);
-    padding-bottom: 5px;
-}
-
-#modal-body-content .modal-img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.modal-info-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-.modal-info-group div strong {
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-.btn-contact-modal {
-    display: block;
-    padding: 15px;
-    background-color: var(--color-alert);
-    color: var(--color-text-light);
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 8px;
-    margin-top: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn-contact-modal:hover {
-    background-color: #c95d5d;
-    transform: scale(1.02);
-}
-
-/* --- Rodapé (Estilo Institucional) --- */
-.main-footer {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    padding: 40px 0 0;
-    margin-top: 60px;
-    border-top: 8px solid var(--color-secondary);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-section {
-    width: calc(33% - 20px);
-    margin-bottom: 20px;
-    min-width: 250px;
-}
-
-.footer-section h3 {
-    color: var(--color-secondary);
-    margin-bottom: 15px;
-    font-family: var(--font-heading);
-    font-size: 1.4em;
-    font-weight: 600;
-}
-
-.footer-section a {
-    color: var(--color-accent);
-    text-decoration: none;
-    line-height: 2.2;
-    transition: color 0.3s;
-}
-
-.footer-section a:hover, .contact-info span i {
-    color: var(--color-secondary);
-}
-
-.contact-info span {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9em;
-}
-
-.social-links a {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 1.6em;
-    transition: transform 0.3s;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 15px 20px;
-    background-color: #1e451e; /* Cor mais escura para o bottom */
-    font-size: 0.85em;
-}
-
-/* --- Responsividade (Media Queries) --- */
-@media (max-width: 992px) {
-    .announcement-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-    .footer-section {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .main-nav ul {
-        justify-content: space-around;
-    }
-    .dropdown:hover .dropdown-content {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-@media (max-width: 768px) {
-    .banner-hero h1 {
-        font-size: 2.5em;
-    }
-    .nav-list {
-        flex-wrap: wrap;
-    }
-    .nav-list > li {
-        width: 50%; /* Faz a navegação quebrar em 2 colunas */
-        text-align: center;
-    }
-    .search-bar-advanced {
-        flex-direction: column;
-    }
-    .search-bar-advanced button {
-        width: 100%;
-        margin-top: 5px;
-    }
-    .modal-info-group {
-        grid-template-columns: 1fr;
-    }
 }
