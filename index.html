@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animais Perdidos Goiânia - Conectando Pets e Famílias</title>
+    <title>Animais Perdidos Goiânia | Portal Oficial de Reencontros e Apoio</title>
     
     <link rel="stylesheet" href="./style.css"> 
     
@@ -19,109 +16,111 @@
         <div class="banner-hero">
             <div class="banner-content">
                 <h1>ANIM<span class="highlight-text">AIS</span> PERDID<span class="highlight-text">OS</span> GOIÂNIA</h1>
-                <p>Juntos, trazemos a esperança de volta para casa.</p>
-                <a href="#anuncios" class="btn-hero-scroll">Ver Pets Perdidos <i class="fas fa-arrow-down"></i></a>
+                <p>Juntos, trazemos a esperança de volta para casa. Uma comunidade que se importa.</p>
+                <a href="#estatisticas" class="btn-hero-scroll btn-primary-cta">Nossa Missão em Números <i class="fas fa-chart-bar"></i></a>
             </div>
         </div>
         
         <nav class="main-nav">
             <ul class="nav-list">
-                <li><a href="#anuncios" class="nav-link"><i class="fas fa-search"></i> Animais Perdidos</a></li>
+                <li><a href="#anuncios" class="nav-link"><i class="fas fa-search"></i> Alertas Ativos</a></li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link"><i class="fas fa-map-marker-alt"></i> Perdi um Pet</a>
+                    <a href="#" class="nav-link"><i class="fas fa-bullhorn"></i> Cadastrar Alerta</a>
                     <ul class="dropdown-content">
-                        <li><a href="#">Cadastrar Nova Perda</a></li>
-                        <li><a href="#">Guia de Primeiros Passos</a></li>
+                        <li><a href="#">Perdi um Pet (Formulário)</a></li>
+                        <li><a href="#">Achei um Pet (Protocolo)</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link"><i class="fas fa-paw"></i> Achei um Pet</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Cadastrar Novo Encontro</a></li>
-                        <li><a href="#">Onde Acolher?</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="nav-link"><i class="fas fa-heart"></i> Adoções</a></li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link"><i class="fas fa-handshake"></i> Voluntariado</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Seja um Anjo da Guarda</a></li>
-                        <li><a href="#">Doações e Apoio</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Quem Somos?</a></li>
+                <li><a href="#doacoes" class="nav-link"><i class="fas fa-hand-holding-heart"></i> Doações</a></li>
+                <li><a href="#comunidade" class="nav-link"><i class="fas fa-users"></i> Mural Comunitário</a></li>
+                <li><a href="#contato" class="nav-link"><i class="fas fa-info-circle"></i> Fale Conosco</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="search-section">
         <div class="container">
-            <h2>Busca Rápida por Localização e Detalhes</h2>
+            <h2>Busca Inteligente por Pet Perdido em Goiânia</h2>
             <div class="search-bar-advanced">
-                <input type="text" id="filter-input" placeholder="Buscar por Nome, Bairro (Setor Bueno) ou Raça (SRD)..." aria-label="Filtro de Anúncios">
-                <button onclick="filterAnnouncements()" aria-label="Aplicar Filtro"><i class="fas fa-filter"></i> Filtrar</button>
+                <input type="text" id="filter-input" placeholder="Buscar por Bairro, Raça, Nome..." aria-label="Filtro de Anúncios">
+                <button onclick="filterAnnouncements()" aria-label="Aplicar Filtro" class="btn-filter"><i class="fas fa-filter"></i> Filtrar</button>
                 <button onclick="resetFilters()" aria-label="Limpar Filtro" class="btn-reset"><i class="fas fa-undo"></i> Limpar</button>
             </div>
         </div>
     </section>
 
+    <section id="estatisticas" class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Nosso Impacto em Números <i class="fas fa-chart-line"></i></h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-home stat-icon"></i>
+                    <p class="stat-number" data-target="158">158+</p>
+                    <p class="stat-label">Pets Reencontrados</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users stat-icon"></i>
+                    <p class="stat-number" data-target="2300">2300+</p>
+                    <p class="stat-label">Voluntários na Rede</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marked-alt stat-icon"></i>
+                    <p class="stat-number" data-target="52">52</p>
+                    <p class="stat-label">Bairros Atendidos (GO)</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-paw stat-icon"></i>
+                    <p class="stat-number" data-target="90">90%</p>
+                    <p class="stat-label">Taxa Média de Sucesso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main id="anuncios" class="main-content container">
-        <h2 class="section-title">Encontre seu Companheiro: Últimos Alertas <i class="fas fa-map-marked-alt"></i></h2>
+        <h2 class="section-title">Alerta! Últimos Pets Perdidos em Destaque <i class="fas fa-exclamation-triangle"></i></h2>
         
         <div class="announcement-grid" id="announcement-grid">
             <div class="loading-placeholder">Carregando anúncios...</div>
         </div>
+        
+        <button class="btn-load-more">Ver Mais 50 Alertas <i class="fas fa-chevron-down"></i></button>
     </main>
 
-    <div id="pet-details-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-body-content">
-                <p>Carregando detalhes...</p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="main-footer">
-        <div class="footer-content container">
-            <div class="footer-section about">
-                <h3>Animais Perdidos Goiânia</h3>
-                <p>Plataforma dedicada à reunificação de pets perdidos com suas famílias em Goiânia, Goiás. Sua esperança tem um lugar aqui.</p>
-                <div class="contact-info">
-                    <span><i class="fas fa-envelope"></i> contato@apgoiania.org</span>
-                    <span><i class="fas fa-phone"></i> (62) 3000-0000 (Central de Apoio)</span>
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Histórias de Sucesso: Lares Reunidos <i class="fas fa-heart"></i></h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Foto da Dona Maria" class="test-avatar">
+                    <p class="testimonial-text">"Nunca pensei que encontraria meu gato, Mingau, depois de 3 dias. A rede de voluntários foi essencial! Gratidão eterna!"</p>
+                    <p class="testimonial-author">- Dona Maria (Setor Oeste)</p>
+                    <p class="pet-status">Reencontrado: Mingau (Gato)</p>
                 </div>
-            </div>
-            
-            <div class="footer-section links">
-                <h3>Navegação</h3>
-                <ul>
-                    <li><a href="#anuncios"><i class="fas fa-angle-right"></i> Buscar Animais</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Cadastrar Perda</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i> Adoção Responsável</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section social">
-                <h3>Conecte-se</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/150?img=2" alt="Foto de João Silva" class="test-avatar">
+                    <p class="testimonial-text">"O site me ajudou a identificar o dono do Basset Hound que encontrei na rua. Em 2 horas, ele estava em casa. Trabalho incrível!"</p>
+                    <p class="testimonial-author">- João Silva (Jardim América)</p>
+                    <p class="pet-status">Pet Devolvido: Max (Basset)</p>
                 </div>
-            </div>
+                </div>
+            <a href="#" class="btn-full-stories">Ler todas as histórias de sucesso</a>
         </div>
-        
-        <div class="footer-bottom">
-            &copy; <span id="current-year">2025</span> Animais Perdidos Goiânia. Desenvolvido com <i class="fas fa-heart" style="color: #e37e7e;"></i> e Ciência. Todos os direitos reservados.
-        </div>
-    </footer>
+    </section>
 
-    <script src="./script.js"></script>
-    <script>
-        // Define o ano atual no rodapé
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>
+    <section class="guide-cta-section">
+        <div class="container cta-flex">
+            <div class="cta-box primary">
+                <h3>O que fazer AGORA? <i class="fas fa-question-circle"></i></h3>
+                <ol class="cta-list">
+                    <li><i class="fas fa-check-circle"></i> Cadastre o pet imediatamente (Perdi/Achei).</li>
+                    <li><i class="fas fa-check-circle"></i> Compartilhe o link do alerta em suas redes.</li>
+                    <li><i class="fas fa-check-circle"></i> Verifique nossos "Pets Encontrados" recentes.</li>
+                </ol>
+                <a href="#" class="btn-cta-large">ACESSAR GUIA COMPLETO</a>
+            </div>
+            <div class="cta-box secondary" id="doacoes">
+                <h3>APOIE a Busca! <i class="fas fa-donate"></i></h3>
+                <p>Todo o trabalho é voluntário. Sua doação ajuda a bancar impressões de cartazes e gastos emergenciais com resgate.</p>
+                <div class="donation-options">
+                    <button class="btn-donate-option
